@@ -1,21 +1,5 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import covid from "../img/covid19.png";
-const Dashboard = () => {
-  const [covidStatus, setCovidStatus] = useState([]);
-
-  useEffect(() => {
-    const getStatus = async () => {
-      const response = await axios.get(
-        "https://covid19.mathdro.id/api/countries/indonesia"
-      );
-
-      setCovidStatus(response.data);
-    };
-
-    getStatus();
-  }, []);
-
+const Dashboard = ({ covidStatus }) => {
   const formatNumber = (number) => {
     return number
       ? number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
