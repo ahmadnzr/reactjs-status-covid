@@ -17,7 +17,9 @@ const Dashboard = () => {
   }, []);
 
   const formatNumber = (number) => {
-    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return number
+      ? number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+      : "0";
   };
 
   return (
